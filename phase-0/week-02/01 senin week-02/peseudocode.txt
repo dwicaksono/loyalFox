@@ -1,0 +1,83 @@
+Newton Second law:
+
+1. berikan nilai untuk masa benda dengan angka 600
+2. berikan nilai untuk percepatan benda dengan angka 2
+3. hitung nilai gaya dengan mengkalikan massa benda dan percepatan
+4. mendapatkan hasil gaya perkalian
+5. tampilkan hasil perkalian
+
+STORE 'masaBenda' with 600
+STORE 'percepatanBenda' with 2
+STORE 'resultGaya' without value
+CALCULATE 'masaBenda' times 'percepatanBenda'
+SET 'resultGaya' value calculation result
+DISPLAY 'resultGaya'
+
+-------------------------------------------------------------------
+
+Tahun Kabisat:
+
+1. membuat variabel 'kabisat' untuk hasil info tahun Kabisat
+2. membuat variabel 'bukanKabisat' untuk hasil info bukan tahun kabisat
+3. membuat variabel 'tahun' untuk menampung nilai tahun yang akan di hitung (nilai variabel harus angka)
+4. menghitung nilai tahun
+5. jika nilai tahun habis dibagi 4 dan tidak habis di bagi 100 maka ke step 7
+6. jika nilai tahun habis dibagi 4 dan habis di bagi 100  dan tidak habis dibagi 400 maka ke step 8
+7. menampilkan nilai kabisat, selesai
+8. menampilkan pemberitahuan bukan nilai kabisat, selesai
+
+STORE 'kabisat' with "ini tahun kabisat"
+STORE 'bukanKabisat' with "ini bukan tahun kabisat"
+STORE 'tahun' with any number 
+IF 'tahun' modulus 4 EQUALS TO 0 AND 'tahun' modulus 100 NOT EQUALS TO 100 THEN
+  IF 'tahun' modulus 4 EQUALS TO 0 AND 'tahun'  modulus 100 EQUALS TO 0 AND 'tahun' modulus 400 NOT EQUALS TO 0 THEN
+    DISPLAY 'kabisat'
+  ELSE
+    DISPLAY 'bukanKabisat'
+  ENDIF
+ELSE
+  DISPLAY 'bukanKabisat'
+ENDIF
+--------------------------------------------------------------------
+
+Laundry Dry
+
+1. membuat variabel 'cucian'
+2. simpan nilai variabel 'cucian' dengan angka 0
+3. mengulang step 4 selama variabel 'cucian' masih dibawah 20. Jika variabel 'cucian' sudah bernilai 20, lanjut ke step 4.
+4. menambah nilai variabel 'cucian' dengan 1, agar nilai variabel 'cucian' mendekati nilai 20. Jika nilai 'cucian' belum 20 maka kembali ke step 3.
+5. Menampilkan menampilkan info menyalakan mesin cuci jika target sudah tercapai.
+
+STORE "cucian" with 0
+WHILE "cucian" LESS THEN 20
+  ADD "cucian" by 1
+DISPLAY "nyalakan mesin cuci"
+
+---------------------------------------------------------------------
+
+Periksa Kuku
+
+Seorang guru akan memeriksa kuku siswa-siswinya yang sebanyak 40 orang dengan cara berkeliling kelas. Jika guru menemukan siswa/siswi yang memiliki kuku yang panjang maka guru akan menghukum siswa/siswi tersebut, jika tidak guru akan memuji siswa/siswi tersebut.
+
+Buatlah algoritma & pseudocode untuk permasalahan diatas.
+
+1.  membuat variabel 'siswa'
+2.  memberikan nilai variabel 'siswa' dengan 0
+3.  membuat variabel 'kukuPanjang'
+4.  memberikan nilai variabel 'kukuPanjang' dengan boolean
+5.  Pengecekan satu persatu 'siswa'
+6.  jika variabel 'kukuPanjang' mempunyai nilai sama dengan boolean true
+7.  Tampilkan 'mendapatkan hukuman'
+8.  jika variabel 'kukuPanjang' mempunyai nilai boolean false
+9.  Tampilkan 'mendapatkan pujian'
+10. pengecekan berulang satu persatu terus ke stepp 5, sampai mendekati jumlah 40 siswa
+11. berhenti setelah pengeceka kuku sebanyak 40  
+
+STORE 'siswa' EQUALS TO 0
+STORE 'kukuPanjang' EQUALS TO true
+WHILE 'siswa' LESS THEN 40 THEN
+  IF 'kukuPanjang' EQUALS TO true THEN
+    DISPLAY 'mendapatkan hukuman'
+  ELSE 
+    DISPLAY 'mendapatkan pujian'
+ADD 'siswa' by 1
