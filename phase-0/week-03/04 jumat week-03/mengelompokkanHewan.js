@@ -15,7 +15,6 @@ function groupAnimals(animals) {
 
   for (var i = 0; i < animals.length; i++) {
     var found = false;
-
     for (var j = 0; j < result.length; j++) {
       if (result[j][0][0] === animals[i][0]) {
         result[j].push(animals[i]);
