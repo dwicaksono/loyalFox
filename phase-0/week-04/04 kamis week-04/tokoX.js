@@ -6,6 +6,30 @@ function countProfit(shoppers) {
   ];
 
   // you can only write your code here!
+
+  var result = [];
+  for (let i = 0; i < listBarang.length; i++) {
+    var obj = {};
+    (obj.product = listBarang[i][0]),
+      (obj.shoppers = []),
+      (obj.leftOver = listBarang[i][2]),
+      (obj.totalProfit = 0);
+    for (let j = 0; j < shoppers.length; j++) {
+      if (
+        shoppers[j].product === listBarang[i][0] &&
+        obj.leftOver >= shoppers[j].amount
+      ) {
+        obj.leftOver -= shoppers[j].amount;
+        obj.totalProfit += listBarang[i][1] * shoppers[i].amount;
+        obj.shoppers.push(shoppers[j].name);
+      }
+    }
+    result.push(obj);
+  }
+  if (!shoppers.length) {
+    return [];
+  }
+  return result;
 }
 
 // TEST CASES
