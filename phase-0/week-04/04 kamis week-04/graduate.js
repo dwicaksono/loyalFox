@@ -1,18 +1,18 @@
 function graduates(students) {
   // Code disini
   var obj = {};
+
   for (let i = 0; i < students.length; i++) {
-    console.log(obj[students[i].class]);
+    if (!obj[students[i].class]) {
+      obj[students[i].class] = [];
+    }
+    var temp = {};
     if (students[i].score > 75) {
-      obj[students[i].class] = [
-        {
-          name: obj[students[i].name],
-          score: obj[students[i].score]
-        }
-      ];
+      (temp.name = students[i].name), (temp.score = students[i].score);
+      obj[students[i].class].push(temp);
     }
   }
-  obj;
+  return obj;
 }
 
 console.log(
@@ -50,35 +50,35 @@ console.log(
 //   ]
 // }
 
-// console.log(
-//   graduates([
-//     {
-//       name: "Alexander",
-//       score: 100,
-//       class: "foxes"
-//     },
-//     {
-//       name: "Alisa",
-//       score: 76,
-//       class: "wolves"
-//     },
-//     {
-//       name: "Vladimir",
-//       score: 92,
-//       class: "foxes"
-//     },
-//     {
-//       name: "Albert",
-//       score: 71,
-//       class: "wolves"
-//     },
-//     {
-//       name: "Viktor",
-//       score: 80,
-//       class: "tigers"
-//     }
-//   ])
-// );
+console.log(
+  graduates([
+    {
+      name: "Alexander",
+      score: 100,
+      class: "foxes"
+    },
+    {
+      name: "Alisa",
+      score: 76,
+      class: "wolves"
+    },
+    {
+      name: "Vladimir",
+      score: 92,
+      class: "foxes"
+    },
+    {
+      name: "Albert",
+      score: 71,
+      class: "wolves"
+    },
+    {
+      name: "Viktor",
+      score: 80,
+      class: "tigers"
+    }
+  ])
+);
 
 // {
 //   foxes: [
