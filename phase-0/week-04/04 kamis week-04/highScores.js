@@ -12,7 +12,7 @@ function highestScore(students) {
       };
     }
   }
-  obj;
+  return obj;
 }
 // TEST CASE
 console.log(
