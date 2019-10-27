@@ -3,8 +3,11 @@ function xo(str) {
   var countX = 0;
   var countO = 0;
   for (var i = 0; i < str.length; i++) {
-    if (str[i] === "x") countX++;
-    countO++;
+    if (str[i] === "x") {
+      countX++;
+    } else {
+      countO++;
+    }
   }
   return countX === countO ? true : false;
 }
