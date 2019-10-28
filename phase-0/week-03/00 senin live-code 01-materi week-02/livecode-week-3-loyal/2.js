@@ -47,13 +47,13 @@ if (belanja === "indomie") {
   );
 } else if (belanja === "wafer") {
   var belanjaan = Math.floor(uang / wafer);
-  var sisa = Math.abs(belanjaan * 2000 - uang);
+  var sisa = Math.abs(belanjaan * 15000 - uang);
   console.log(
     `Kamu membeli ${belanjaan} wafer dan memiliki kembalian sebanyak ${sisa}`
   );
 } else if (belanja === "bayam") {
   var belanjaan = Math.floor(uang / bayam);
-  var sisa = Math.abs(belanjaan * 2000 - uang);
+  var sisa = Math.abs(belanjaan * 5000 - uang);
   console.log(
     `Kamu membeli ${belanjaan} bayam dan memiliki kembalian sebanyak ${sisa}`
   );
