@@ -17,22 +17,25 @@ function checkerBoard(num) {
   // Write your code here
   var out = "";
   for (let i = 0; i < num; i++) {
-    if (num % 2 === 0) {
-      i = " *";
-    } else if (num % 2 !== 0) {
-      i = "  *";
+    temp = "";
+    for (let j = 0; j < num; j++) {
+      // console.log(i);
+      // console.log(j);
+      if (j % 2 === 0) {
+        j = "*";
+      }
+      out += j;
     }
-    out += i;
+    console.log(temp);
   }
-  return out;
+  console.log(out);
 }
-
 // console.log(checkerBoard(1));
 // *
-console.log(checkerBoard(2));
+// console.log(checkerBoard(2));
 // *
 //  *
-console.log(checkerBoard(3));
+// console.log(checkerBoard(3));
 // * *
 //  *
 // * *
@@ -41,7 +44,7 @@ console.log(checkerBoard(3));
 //  * *
 // * *
 //  * *
-// console.log(checkerBoard(5));
+console.log(checkerBoard(5));
 // * * *
 //  * *
 // * * *

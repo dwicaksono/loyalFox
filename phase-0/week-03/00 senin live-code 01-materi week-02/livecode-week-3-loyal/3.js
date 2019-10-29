@@ -26,7 +26,7 @@ function nilaiKuliah(nama, matkul1, matkul2, matkul3) {
   var avg = (matkul1 + matkul2 + matkul3) / 3;
   if (avg >= 80) {
     return `Selamat ${nama}, grade kamu adalah A, Anda adalah lulusan terbaik`;
-  } else if (avg >= 70) {
+  } else if (avg >= 70 && avg < 80) {
     return `Selamat ${nama}, grade kamu adalah B, Anda adalah lulusan kedua terbaik`;
   } else {
     return `Selamat ${nama}, grade kamu adalah C, Anda lulus`;
