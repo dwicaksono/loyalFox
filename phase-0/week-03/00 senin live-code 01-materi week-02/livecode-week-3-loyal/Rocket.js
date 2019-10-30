@@ -15,31 +15,32 @@
 
 function checkerBoard(num) {
   // Write your code here
-  var out = "";
-  for (let i = 0; i < num; i++) {
-    temp = "";
-    for (let j = 0; j < num; j++) {
-      // console.log(i);
-      // console.log(j);
-      if (j % 2 === 0) {
-        j = "*";
-      }
-      out += j;
-    }
-    console.log(temp);
+  if (num < 0 || num !== Number(num)) {
+    return "Invalid";
   }
-  console.log(out);
+  var res = "";
+  for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+      if ((i % 2 === 0 && j % 2 === 0) || (i % 2 !== 0 && j % 2 !== 0)) {
+        res += "*";
+      } else {
+        res += " ";
+      }
+    }
+    res += "\n";
+  }
+  return res;
 }
-// console.log(checkerBoard(1));
+console.log(checkerBoard(1));
 // *
-// console.log(checkerBoard(2));
+console.log(checkerBoard(2));
 // *
 //  *
-// console.log(checkerBoard(3));
+console.log(checkerBoard(3));
 // * *
 //  *
 // * *
-// console.log(checkerBoard(4));
+console.log(checkerBoard(4));
 // * *
 //  * *
 // * *
