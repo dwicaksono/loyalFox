@@ -1,7 +1,17 @@
 function angkaPalindrome(num) {
-  // you can only write your code here!
-  var numBase = String(num);
-  console.log(numBase);
+  num++;
+  while (true) {
+    var temp = "";
+
+    for (var i = String(num).length - 1; i >= 0; i--) {
+      temp += String(num)[i];
+    }
+    if (temp === String(num)) {
+      return num;
+    } else {
+      num++;
+    }
+  }
 }
 
 // TEST CASES
