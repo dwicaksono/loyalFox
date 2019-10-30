@@ -40,7 +40,6 @@ function digitPerkalianMinimum(angka) {
       temp = i;
       arr.push(temp);
     }
-    temp;
   }
   if (arr.length == 1) {
     return arr.length + arr.length;
