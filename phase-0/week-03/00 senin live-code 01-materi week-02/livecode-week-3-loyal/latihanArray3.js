@@ -3,7 +3,6 @@ function latihan(arr) {
   var oneArr = [];
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
-      console.log(arr[i][j]);
       oneArr.push(arr[i][j]);
     }
   }
@@ -14,7 +13,14 @@ function latihan(arr) {
     obj[oneArr[i]] = obj[oneArr[i]] + 1 || 1;
   }
   res.push(obj);
-  obj;
+
+  var out = [];
+  for (var key in obj) {
+    if (obj[key] === 2) {
+      out.push(key);
+    }
+  }
+  return out;
 }
 
 console.log(
