@@ -1,36 +1,22 @@
 function hitungJumlahKata(kalimat) {
   //you can only write your code here!
-  var kata = [];
-  var oneLetter = "";
-  for (var i = 0; i < kalimat.length; i++) {
-    if (kalimat[i] === " ") {
-      kata.push(oneLetter);
-      oneLetter = "";
-    } else if (i === kalimat.length - 1) {
-      oneLetter += kalimat[i];
-      kata.push(oneLetter);
-    } else {
-      oneLetter += kalimat[i];
+  // var kata = kalimat.split(" ");
+  // return kata.length;
+  var count = 0;
+  for (let i = 0; i < kalimat.length; i++) {
+    console.log(kalimat[i - 1]);
+    console.log(kalimat[i + 1]);
+    if (
+      kalimat[i + 1] === undefined ||
+      (kalimat[i + 1] === " " && kalimat[i] !== " ")
+    ) {
+      count++;
     }
   }
-  kata;
-  return kata.length;
-
-  // for (let i = 0; i < kalimat.length; i++) {
-  //   var kalimatkosong = " ";
-  //   var count = "";
-  //   kalimat += kalimatkosong;
-  //   for (i = 0; i < kalimat.length; i++) {
-  //     if (kalimat[i] === kalimatkosong) {
-  //       count++;
-  //     }
-  //   }
-  //   return count;
-  //   // you can only write your code here!
-  // }
+  return count;
 }
 // TEST CASES
-console.log(hitungJumlahKata("I have a dream")); // 4
+console.log(hitungJumlahKata("I have a  dream")); // 4
 // console.log(hitungJumlahKata("Never eat shredded wheat or cake")); // 6
 // console.log(hitungJumlahKata("A song to sing")); // 4
 // console.log(hitungJumlahKata("I")); // 1

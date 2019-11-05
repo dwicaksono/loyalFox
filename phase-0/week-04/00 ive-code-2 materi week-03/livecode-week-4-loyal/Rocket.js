@@ -18,30 +18,60 @@
  *    map, filter, reduce, forEach, split, slice, splice, join, reverse, sort
  */
 
-function isiKotak(num) {
-  // console.log("");
-  // Write your code here
-  var res = [];
-  var count = 1;
-  for (let i = 0; i < num; i++) {
-    var temp = [];
-    for (let j = 1; j <= num; j++) {
-      temp.push(count % 10);
-      // count++;
-      // temp.push(count);
-      // console.log(j);
-      // if (j === num) {
-      //   for (let k = num; k >= 1; k--) {
-      //     console.log(k);
-      //   }
-      // }
-      count++;
-    }
-    // console.log(temp[i]);
-    res.push(temp);
-  }
-  return res;
-}
+// function isiKotak(num) {
+//   // console.log("");
+//   // Write your code here
+//   var res = [];
+//   var count = 1;
+//   for (let i = 0; i < num; i++) {
+//     var temp = [];
+//     for (let j = 1; j <= num; j++) {
+//       temp.push(count);
+//       console.log(j);
+//       count++;
+//     }
+//     // console.log(temp[i]);
+//     res.push(temp);
+//   }
+//   for (let i = 0; i < res.length; i++) {
+//     for (let j = 0; j < res[i].length; j++) {
+//       var indexJ = num - 1;
+//       indexJ;
+//       console.log(res[i][j]);
+//       if (indexJ === j) {
+//         console.log(res[i][j]);
+//       }
+//       console.log(res[i][j]);
+//       console.log(j);
+//     }
+//   }
+// }
+// function isiKotak(num) {
+//   var count = 1;
+//   var flag = 1;
+//   var result = [];
+//   for (var i = 0; i < num; i++) {
+//     result.push([]);
+//     for (var j = 0; j < num; j++) {
+//       if (count == 10) {
+//         result[i].push(0);
+//         flag = -1;
+//         count -= 1;
+//       } else if (count == 1) {
+//         flag = 1;
+//       } else if (count == num) {
+//         flag = -1;
+//       }
+//       if (result[i].length < num) {
+//         result[i].push(count);
+//         count += flag;
+//       } else if (result[i] == num) {
+//         break;
+//       }
+//     }
+//   }
+//   return result;
+// }
 
 // console.log(isiKotak(1));
 // [ [ 1 ] ]
@@ -67,7 +97,7 @@ function isiKotak(num) {
 // Invalid
 // console.log(isiKotak(false));
 // Invalid
-console.log(isiKotak(10));
+// console.log(isiKotak(10));
 // [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ],
 //   [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 2 ],
 //   [ 3, 4, 5, 6, 7, 8, 9, 0, 9, 8 ],
@@ -106,3 +136,48 @@ console.log(isiKotak(10));
 //   [ 3, 4, 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3 ],
 //   [ 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4 ],
 //   [ 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] ]
+
+// function horizontal(sisi) {
+//   let ar = [];
+//   let flag = true;
+//   for (let i = 1; i < Infinity; flag ? i++ : i--) {
+//     i > 9 ? ar.push(i % 10) : ar.push(i);
+//     console.log(i);
+//     console.log(sisi);
+//     if (i == sisi) flag = false;
+//     else if (i === 1) flag = true;
+//     if (ar.length === sisi * sisi) return ar;
+//   }
+// }
+function horizontal(sisi) {
+  let ar = [];
+  let flag = true;
+  var batas = sisi * sisi;
+  for (let i = 1; i < batas; flag ? i++ : i--) {
+    i > 9 ? ar.push(i % 10) : ar.push(i);
+
+    // if (i == sisi) flag = false;
+    // else if (i === 1) flag = true;
+  }
+  return ar;
+}
+
+function board(sisi) {
+  let ar = horizontal(sisi);
+  let finalBoard = [];
+  let count = 1;
+  let temp = [];
+
+  for (let i = 0; i < ar.length; i++) {
+    temp.push(ar[i]);
+    count++;
+    if (count == sisi + 1) {
+      finalBoard.push(temp);
+      temp = [];
+      count = 1;
+    }
+  }
+  return finalBoard;
+}
+
+console.log(board(10));
