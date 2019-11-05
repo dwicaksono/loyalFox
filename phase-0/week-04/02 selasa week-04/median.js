@@ -4,8 +4,6 @@ function cariMedian(arr) {
   if (arr.length % 2 !== 0) {
     return arr[result];
   } else {
-    console.log(arr[result - 1]);
-    console.log(arr[result]);
     return (arr[result - 1] + arr[result]) / 2;
   }
 }
