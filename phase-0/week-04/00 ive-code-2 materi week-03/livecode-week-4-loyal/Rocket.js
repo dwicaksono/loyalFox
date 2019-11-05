@@ -25,13 +25,22 @@ function isiKotak(num) {
   var count = 1;
   for (let i = 0; i < num; i++) {
     var temp = [];
-    for (let j = 0; j < num; j++) {
+    for (let j = 1; j <= num; j++) {
       temp.push(count % 10);
+      // count++;
+      // temp.push(count);
+      // console.log(j);
+      // if (j === num) {
+      //   for (let k = num; k >= 1; k--) {
+      //     console.log(k);
+      //   }
+      // }
       count++;
     }
     // console.log(temp[i]);
     res.push(temp);
   }
+  return res;
 }
 
 // console.log(isiKotak(1));
