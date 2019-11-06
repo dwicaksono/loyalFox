@@ -19,7 +19,7 @@
  */
 
 function isiKotak(num) {
-  var long = num * num;
+  // var long = num * num;
   var arrNum = [];
   var arrLong = [];
   count = 1;
