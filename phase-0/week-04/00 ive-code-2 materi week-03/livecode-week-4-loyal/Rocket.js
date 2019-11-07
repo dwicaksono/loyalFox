@@ -19,64 +19,62 @@
  */
 
 function isiKotak(num) {
-  // var long = num * num;
-  var arrNum = [];
-  var arrLong = [];
-  count = 1;
-  for (let i = 1; i <= num; i++) {
-    for (let j = 1; j <= num; j++) {
-      arrLong.push(j);
-    }
+  var kotakBesar = [];
+  var flag = true;
+  var count = 1;
+  if (!num || num !== Number(num)) {
+    return "Invalid";
   }
-  arrLong;
-  //   for (let i = 0; i < arrLong.length - 1; i++) {
-  //     console.log(arrLong[i]);
-  //     for (let j = arrLong.length - 1; j > 0; j--) {
-  //       if (arrLong[i] === num) {
-  //         console.log(arrLong[j + 1]);
-  //         console.log(arrLong[i]);
-  //         arrLong[i + 1] = arrLong[j];
-  //       }
-  //     }
-  //   }
-  //   arrLong;
-  //   let ar = [];
-  //   let flag = true;
-  //   for (let i = 1; i < Infinity; flag ? i++ : i--) {
-  //     i > 9 ? ar.push(i % 10) : ar.push(i);
-  //     console.log(i);
-  //     console.log(num);
-  //     if (i == num) flag = false;
-  //     else if (i === 1) flag = true;
-  //     if (ar.length === num * num) return ar;
-  //   }
+  for (let i = 1; i <= num; i++) {
+    var temp = [];
+    for (let j = 1; j <= num; j++) {
+      temp.push(count % 10);
+      // count++;
+      if (flag === true) {
+        count++;
+      }
+      if (!flag) {
+        count--;
+      }
+      if (count === num) {
+        flag = false;
+      }
+      if (count === 1) {
+        flag = true;
+      }
+    }
+    kotakBesar.push(temp);
+  }
+
+  return kotakBesar;
+  //
 }
 
-// console.log(isiKotak(1));
+console.log(isiKotak(1));
 // [ [ 1 ] ]
-// console.log(isiKotak(2));
+console.log(isiKotak(2));
 // [ [ 1, 2 ],
 //   [ 1, 2 ] ]
 console.log(isiKotak(3));
 // [ [ 1, 2, 3 ],
 //   [ 2, 1, 2 ],
 //   [ 3, 2, 1 ] ]
-// console.log(isiKotak(4));
+console.log(isiKotak(4));
 // [ [ 1, 2, 3, 4 ],
 //   [ 3, 2, 1, 2 ],
 //   [ 3, 4, 3, 2 ],
 //   [ 1, 2, 3, 4 ] ]
-// console.log(isiKotak(5));
+console.log(isiKotak(5));
 // [ [ 1, 2, 3, 4, 5 ],
 //   [ 4, 3, 2, 1, 2 ],
 //   [ 3, 4, 5, 4, 3 ],
 //   [ 2, 1, 2, 3, 4 ],
 //   [ 5, 4, 3, 2, 1 ] ]
-// console.log(isiKotak("5"));
+console.log(isiKotak("5"));
 // Invalid
-// console.log(isiKotak(false));
+console.log(isiKotak(false));
 // Invalid
-// console.log(isiKotak(10));
+console.log(isiKotak(10));
 // [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ],
 //   [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 2 ],
 //   [ 3, 4, 5, 6, 7, 8, 9, 0, 9, 8 ],
@@ -87,7 +85,7 @@ console.log(isiKotak(3));
 //   [ 3, 2, 1, 2, 3, 4, 5, 6, 7, 8 ],
 //   [ 9, 0, 9, 8, 7, 6, 5, 4, 3, 2 ],
 //   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ] ]
-// console.log(isiKotak(11));
+console.log(isiKotak(11));
 // [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1 ],
 //   [ 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 2 ],
 //   [ 3, 4, 5, 6, 7, 8, 9, 0, 1, 0, 9 ],
@@ -99,7 +97,7 @@ console.log(isiKotak(3));
 //   [ 9, 0, 1, 0, 9, 8, 7, 6, 5, 4, 3 ],
 //   [ 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ],
 //   [ 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] ]
-// console.log(isiKotak(15));
+console.log(isiKotak(15));
 // [ [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5 ],
 //   [ 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 2 ],
 //   [ 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 4, 3 ],

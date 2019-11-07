@@ -25,26 +25,26 @@
 function cariKemiripan(arr, kata) {
   var res = [];
   for (let i = 0; i < arr.length; i++) {
-    var sama = true;
-    for (let j = 0; j < arr[i].length - kata.length + 1; j++) {
-      for (let k = 0; k < kata.length; k++) {
-        if (arr[i][j + k] !== kata[k]) {
-          sama = false;
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] === kata[0]) {
+        var match = true;
+        for (let k = 0; k < kata.length; k++) {
+          if (kata[k] !== arr[i][j + k]) {
+            match = false;
+          }
         }
-      }
-      if (sama === true) {
-        res.push(arr[i]);
-        // break;
-        console.log(arr[i]);
+        if (match) {
+          res.push(arr[i]);
+        }
       }
     }
   }
-  res;
+  return res;
 }
 
-// console.log(
-//   cariKemiripan(["bola", "ola ramlan", "sholat", "gajah", "fanta"], "ola")
-// );
+console.log(
+  cariKemiripan(["bola", "ola ramlan", "sholat", "gajah", "fanta"], "ola")
+);
 //["bola", "ola ramlan", "sholat"]
 console.log(
   cariKemiripan(["kata", "atta halilintar", "hatta", "bata", "fanta"], "atta")
