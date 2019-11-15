@@ -49,16 +49,16 @@ function mountainView(height, landscapeHeight, landscapeWidth) {
     for (let j = 0; j < res[i].length; j++) {
       var tengah1 = height - 1;
       res[tengah1][tengah1] = "X";
-      if (
-        res[res.length - 1][res.length - count] === " " &&
+      // if (
+        res[res.length - 1][res.length - 1] === " " &&
         res[res.length - 1][0] === " "
-      ) {
-        res[res.length - count][res.length - count] === "X";
-        res[res.length - count][count2] === "X";
-      }
+      // ) {
+        res[res.length - 2][res.length - 2] === "X";
+        res[res.length - 2][1] === "X";
+      // }
       count2++;
       count++;
-    }
+    // }
     // res[res.length - 2][res.length - 2] = "X";
     // res[res.length - 2][1] = "X";
   }

@@ -24,45 +24,6 @@
 
 function getStudents(arr) {
   // Write your code here
-  var obj = {};
-  obj["phase 0"] = [];
-  obj["phase 1"] = [];
-  obj["phase 2"] = [];
-  obj["phase 3"] = [];
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-    //Split Manual
-
-    var newArr = [];
-    var oneWord = "";
-    for (var x = 0; x < arr[i].length; x++) {
-      if (arr[i][x] == "-") {
-        newArr.push(oneWord);
-        oneWord = "";
-      } else if (x == arr[i].length - 1) {
-        oneWord += arr[i][x];
-        newArr.push(oneWord);
-      } else {
-        oneWord += arr[i][x];
-      }
-    }
-    for (let j = 0; j < newArr.length; j++) {
-      console.log(newArr[j]);
-      if (newArr[j] === "0") {
-        obj["phase 0"].push(newArr[0]);
-      }
-      if (newArr[j] === "1") {
-        obj["phase 1"].push(newArr[0]);
-      }
-      if (newArr[j] === "2") {
-        obj["phase 2"].push(newArr[0]);
-      }
-      if (newArr[j] === "3") {
-        obj["phase 3"].push(newArr[0]);
-      }
-    }
-  }
-  return obj;
 }
 
 console.log(getStudents(["okka-0", "maulid-1", "riko-2", "bayu-3"]));

@@ -20,66 +20,48 @@
  * -----
  * 1. Dilarang menggunakan built-in function split, slice, splice
  */
+function splitMe(str, param) {
+  var result = [];
+  var temp = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === param) {
+      result.push(temp);
+      temp = "";
+    } else {
+      temp += str[i];
+    }
+  }
+  result.push(temp);
 
+  return result;
+}
 function findMovie(arrMovie) {
-  // Tulis kodemu disini
-
-  var obj = {};
+  var res = [];
   for (let i = 0; i < arrMovie.length; i++) {
-    var movie = arrMovie[i][0];
-
-    var date = arrMovie[i][1];
-    var genre = arrMovie[i][2];
-
-    var splitdate = [];
-    var oneWord = "";
-    for (var x = 0; x < date.length; x++) {
-      if (date[x] == " ") {
-        splitdate.push(oneWord);
-        oneWord = "";
-      } else if (x == date.length - 1) {
-        oneWord += date[x];
-        splitdate.push(oneWord);
-      } else {
-        oneWord += date[x];
-      }
+    var obj = {};
+    for (let j = 0; j < arrMovie[i].length; j++) {
+      var tahun = splitMe(arrMovie[i][1], " ");
+      obj.judul = arrMovie[i][0];
+      obj.tahun = tahun[2];
+      obj.tanggal = tahun[0] + " " + tahun[1];
+      obj.genre = arrMovie[i][2];
     }
-    obj[splitdate[2]] = [];
+
+    res.push(obj);
   }
 
-  obj;
-
-  for (let i = 0; i < arrMovie.length; i++) {
-    var movie = arrMovie[i][0];
-
-    var date = arrMovie[i][1];
-    var genre = arrMovie[i][2];
-
-    var splitdate = [];
-    var oneWord = "";
-    for (var x = 0; x < date.length; x++) {
-      if (date[x] == " ") {
-        splitdate.push(oneWord);
-        oneWord = "";
-      } else if (x == date.length - 1) {
-        oneWord += date[x];
-        splitdate.push(oneWord);
-      } else {
-        oneWord += date[x];
-      }
+  var objt = {};
+  for (let i = 0; i < res.length; i++) {
+    if (objt[res[i].tahun] === undefined) {
+      objt[res[i].tahun] = [];
     }
-
-    for (const key in obj) {
-      if (key === splitdate[2]) {
-        obj[splitdate[2]].push({
-          date: splitdate[0] + " " + splitdate[1],
-          title: movie,
-          genre: genre
-        });
-      }
-    }
+    objt[res[i].tahun].push({
+      date: res[i].tanggal,
+      title: res[i].judul,
+      genre: res[i].genre
+    });
   }
-  return obj;
+  return objt;
 }
 
 var movie1 = [

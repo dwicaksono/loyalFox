@@ -22,14 +22,63 @@
  * 2. Pastikan urutan key sesuai dengan expected output
  */
 
-function getStudents(arr) {
-  // Write your code here
+// function getStudents(arr) {
+//   // Write your code here
+
+//   if (!arr.length) {
+//     return {};
+//   }
+
+//   var arrSplit = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     var newArr = [];
+//     var oneWord = "";
+//     for (var x = 0; x < arr[i].length; x++) {
+//       if (arr[i][x] == "-") {
+//         newArr.push(oneWord);
+//         oneWord = "";
+//       } else if (x == arr[i].length - 1) {
+//         oneWord += arr[i][x];
+//         newArr.push(oneWord);
+//       } else {
+//         oneWord += arr[i][x];
+//       }
+//     }
+//     arrSplit.push(newArr);
+//   }
+
+//   var obj = {};
+//   obj["phase 0"] = [];
+//   obj["phase 1"] = [];
+//   obj["phase 2"] = [];
+//   obj["phase 3"] = [];
+//   for (let i = 0; i < arrSplit.length; i++) {
+//     for (let j = 0; j < arrSplit[i].length; j++) {
+//       if (arrSplit[i][j] === "0") {
+//         obj["phase 0"].push(arrSplit[i][0]);
+//       }
+//       if (arrSplit[i][j] === "1") {
+//         obj["phase 1"].push(arrSplit[i][0]);
+//       }
+//       if (arrSplit[i][j] === "2") {
+//         obj["phase 2"].push(arrSplit[i][0]);
+//       }
+//       if (arrSplit[i][j] === "3") {
+//         obj["phase 3"].push(arrSplit[i][0]);
+//       }
+//     }
+//   }
+
+//   return obj;
+// }
+
+function split(arr, symbol) {
   var arrSplit = [];
   for (let i = 0; i < arr.length; i++) {
     var newArr = [];
     var oneWord = "";
     for (var x = 0; x < arr[i].length; x++) {
-      if (arr[i][x] == "-") {
+      if (arr[i][x] == symbol) {
         newArr.push(oneWord);
         oneWord = "";
       } else if (x == arr[i].length - 1) {
@@ -41,29 +90,37 @@ function getStudents(arr) {
     }
     arrSplit.push(newArr);
   }
+  return arrSplit;
+}
+
+function getStudents(arr) {
+  // Write your code here
+
+  if (!arr.length) {
+    return {};
+  }
+  var arrsplit = split(arr, "-");
 
   var obj = {};
-  obj["phase 0"] = [];
-  obj["phase 1"] = [];
-  obj["phase 2"] = [];
-  obj["phase 3"] = [];
-  for (let i = 0; i < arrSplit.length; i++) {
-    for (let j = 0; j < arrSplit[i].length; j++) {
-      if (arrSplit[i][j] === "0") {
-        obj["phase 0"].push(arrSplit[i][0]);
-      }
-      if (arrSplit[i][j] === "1") {
-        obj["phase 1"].push(arrSplit[i][0]);
-      }
-      if (arrSplit[i][j] === "2") {
-        obj["phase 2"].push(arrSplit[i][0]);
-      }
-      if (arrSplit[i][j] === "3") {
-        obj["phase 3"].push(arrSplit[i][0]);
+  for (let i = 0; i < arrsplit.length; i++) {
+    for (let j = 0; j < arrsplit[i].length; j++) {
+      if (obj[arrsplit[i][1]] === undefined) {
+        obj[arrsplit[i][1]] = [];
       }
     }
   }
-  return obj;
+
+  for (const key in obj) {
+    for (let i = 0; i < arrsplit.length; i++) {
+      if (arrsplit[i][1] === key) {
+        obj[key].push(arrsplit[i][0]);
+      }
+    }
+  }
+
+  console.log(obj);
+
+  // return obj;
 }
 
 console.log(getStudents(["okka-0", "maulid-1", "riko-2", "bayu-3"]));

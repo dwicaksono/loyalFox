@@ -42,30 +42,56 @@
 function transferWindowFilter(scoutList, playerList) {
   console.log();
   // Write your code here
+  for (var i = 0; i < scoutList.length; i++) {
+    scoutList[i].suggestedPlayer = [];
+    var [min, max] = scoutList[i].priceRange.split("-");
 
-  var res = [];
-  for (let i = 0; i < scoutList.length; i++) {
-    var range = scoutList[i].priceRange.split("-");
-    range;
-    var min = Number(range[0]);
-    var max = Number(range[1]);
-
-    var obj = {};
-    obj.pos = scoutList[i].pos;
-    obj.priceRange = scoutList[i].priceRange;
-    obj.suggestedPlayer = [];
-    for (let j = 0; j < playerList.length; j++) {
+    for (var j = 0; j < playerList.length; j++) {
       if (
-        obj.pos === playerList[j].position &&
-        playerList[j].price >= min &&
-        playerList[j].price <= max
+        playerList[j].position == scoutList[i].pos &&
+        playerList[j].price >= Number(min) &&
+        playerList[j].price <= Number(max)
       ) {
-        obj.suggestedPlayer.push(playerList[j].name);
+        scoutList[i].suggestedPlayer.push(playerList[j].name);
       }
     }
-    res.push(obj);
   }
-  return res;
+  return scoutList;
+  // var arrRange = [];
+  // var obj = {};
+  // for (let i = 0; i < scoutList.length; i++) {
+  //   var splitrange = scoutList[i].priceRange.split("-");
+  //   console.log(splitrange[0]);
+  //   arrRange.push(splitrange);
+  //   if (obj[scoutList[i].pos] === undefined) {
+  //     obj[scoutList[i].pos] = {
+  //       pos: scoutList[i].pos,
+  //       priceRange: scoutList[i].priceRange,
+  //       suggestedPlayer: [],
+  //       min: Number(splitrange[0]),
+  //       max: Number(splitrange[1])
+  //     };
+  //   }
+  // }
+
+  // var res = [];
+  // for (const key in obj) {
+  //   for (let i = 0; i < playerList.length; i++) {
+  //     if (
+  //       obj[key].pos === playerList[i].position &&
+  //       playerList[i].price >= obj[key].min &&
+  //       playerList[i].price <= obj[key].max
+  //     ) {
+  //       obj[key].suggestedPlayer.push(playerList[i].name);
+  //     }
+  //   }
+  //   res.push({
+  //     pos: obj[key].pos,
+  //     priceRange: obj[key].priceRange,
+  //     suggestedPlayer: obj[key].suggestedPlayer
+  //   });
+  // }
+  // return res;
 }
 
 var scoutPosition1 = [
