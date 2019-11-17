@@ -13,6 +13,17 @@
  *
  */
 
+// function splitLocation(passenger) {
+//   var obj = {};
+//   for (let i = 0; i < passenger.length; i++) {
+//     if (obj[passenger[i].destination] === undefined) {
+//       obj[passenger[i].destination] = [passenger[i].name];
+//     } else {
+//       obj[passenger[i].destination].push(passenger[i].name);
+//     }
+//   }
+//   return obj;
+// }
 function splitLocation(passenger) {
   var obj = {};
   for (let i = 0; i < passenger.length; i++) {
@@ -22,6 +33,7 @@ function splitLocation(passenger) {
       obj[passenger[i].destination].push(passenger[i].name);
     }
   }
+
   return obj;
 }
 

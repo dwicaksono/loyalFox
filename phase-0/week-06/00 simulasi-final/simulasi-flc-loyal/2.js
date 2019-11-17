@@ -39,19 +39,22 @@ function divisible(data, divider) {
     string = "";
 
     string += data[i];
-
-    var splittest = [];
-    for (let x = 0; x < string.length; x++) {
-      splittest.push(string[x]);
-    }
-
     var sumNum = 0;
-    for (let j = 0; j < splittest.length; j++) {
-      sumNum += Number(splittest[j]);
+    for (let x = 0; x < string.length; x++) {
+      sumNum += Number(string[x]);
     }
+    // var splittest = [];
+    // for (let x = 0; x < string.length; x++) {
+    //   splittest.push(string[x]);
+    // }
+
+    // var sumNum = 0;
+    // for (let j = 0; j < splittest.length; j++) {
+    //   sumNum += Number(splittest[j]);
+    // }
 
     var hasil = Math.floor(sumNum / divider);
-    hasil;
+
     if (sumNum % divider === 0) {
       res.push(1);
     }

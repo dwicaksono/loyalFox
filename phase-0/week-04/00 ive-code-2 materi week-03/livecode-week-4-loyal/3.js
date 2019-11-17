@@ -27,26 +27,32 @@
 
 function mengisiGudang(kapasitas, diperbolehkan, dikirim) {
   // Write your code here
+
   var res = [];
-  var totalJumlahItem = 0;
-  for (let i = 0; i < dikirim.length; i++) {
-    for (let j = 0; j < diperbolehkan.length; j++) {
-      if (dikirim[i][0] === diperbolehkan[j]) {
-        totalJumlahItem += dikirim[i][1];
-        res.push(dikirim[i]);
+  var sum = 0;
+  for (let i = 0; i < diperbolehkan.length; i++) {
+    var temp = [];
+    for (let j = 0; j < dikirim.length; j++) {
+      if (diperbolehkan[i] === dikirim[j][0]) {
+        temp.push(dikirim[j][0], dikirim[j][1]);
+        sum += dikirim[j][1];
       }
     }
+    res.push(temp);
   }
-  totalJumlahItem;
-  var sisa = kapasitas - totalJumlahItem;
-  res.push("terisi : " + totalJumlahItem, "sisa : " + sisa);
 
-  if (totalJumlahItem > kapasitas) {
+  var sisa = 0;
+
+  if (sum <= kapasitas) {
+    sisa = kapasitas - sum;
+  } else if (sum > kapasitas) {
     return "Maaf, barang yang diterima melebihi kapasitas gudang";
   }
-  if (totalJumlahItem === 0) {
+  if (sum === 0) {
     return "Tidak ada barang yang mengisi gudang";
   }
+  res.push("Terisi: " + sum, " Sisa: " + sisa);
+
   return res;
 }
 
@@ -75,7 +81,12 @@ console.log(
   mengisiGudang(
     500,
     ["Laptop", "Printer", "AC"],
-    [["Printer", 410], ["Laptop", 210], ["Telepon", 20], ["Wifi", 4]]
+    [
+      ["Printer", 410],
+      ["Laptop", 210],
+      ["Telepon", 20],
+      ["Wifi", 4]
+    ]
   )
 );
 
@@ -87,7 +98,11 @@ console.log(
   mengisiGudang(
     300,
     ["Celana Jeans"],
-    [["Kemeja", 100], ["Jaket Parka", 100], ["Celana Jeans", 140]]
+    [
+      ["Kemeja", 100],
+      ["Jaket Parka", 100],
+      ["Celana Jeans", 140]
+    ]
   )
 );
 
@@ -99,7 +114,11 @@ console.log(
   mengisiGudang(
     50,
     ["Beras", "Kedelai"],
-    [["Jagung", 50], ["Kacang Tanah", 20], ["Ubi Jalar", 40]]
+    [
+      ["Jagung", 50],
+      ["Kacang Tanah", 20],
+      ["Ubi Jalar", 40]
+    ]
   )
 );
 

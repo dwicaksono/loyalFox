@@ -46,7 +46,7 @@ function findMovie(arrMovie) {
       obj.tanggal = tahun[0] + " " + tahun[1];
       obj.genre = arrMovie[i][2];
     }
-
+    obj;
     res.push(obj);
   }
 

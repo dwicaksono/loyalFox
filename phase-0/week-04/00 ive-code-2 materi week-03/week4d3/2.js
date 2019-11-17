@@ -21,28 +21,46 @@
     karena Aqua dan giyu memiliki job dan power yang memenuhi requirement di atas
  */
 
+// function guildRecruitment(heroes, requirement) {
+//   var obj = {};
+//   for (let i = 0; i < heroes.length; i++) {
+//     for (let j = 0; j < requirement.length; j++) {
+//       if (obj[heroes[i].job] === undefined) {
+//         if (
+//           heroes[i].power > requirement[j].minPower &&
+//           heroes[i].job === requirement[j].job
+//         ) {
+//           obj[heroes[i].job] = [heroes[i]];
+//         }
+//       } else if (
+//         heroes[i].power > requirement[j].minPower &&
+//         heroes[i].job === requirement[j].job
+//       ) {
+//         obj[heroes[i].job].push(heroes[i]);
+//       }
+//     }
+//   }
+//   return obj;
+// }
 function guildRecruitment(heroes, requirement) {
   var obj = {};
-  for (let i = 0; i < heroes.length; i++) {
-    for (let j = 0; j < requirement.length; j++) {
-      if (obj[heroes[i].job] === undefined) {
-        if (
-          heroes[i].power > requirement[j].minPower &&
-          heroes[i].job === requirement[j].job
-        ) {
-          obj[heroes[i].job] = [heroes[i]];
-        }
-      } else if (
-        heroes[i].power > requirement[j].minPower &&
-        heroes[i].job === requirement[j].job
+
+  for (let i = 0; i < requirement.length; i++) {
+    if (obj[requirement[i].job] === undefined) {
+      obj[requirement[i].job] = [];
+    }
+    for (let j = 0; j < heroes.length; j++) {
+      if (
+        heroes[j].power > requirement[i].minPower &&
+        heroes[j].job === requirement[i].job
       ) {
-        obj[heroes[i].job].push(heroes[i]);
+        obj[requirement[i].job].push(heroes[j]);
       }
     }
   }
+
   return obj;
 }
-
 let group1 = [
   { name: "Tanjirou", job: "Swordsman", power: 8000 },
   { name: "Aqua", job: "Mage", power: 9000 },
